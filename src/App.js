@@ -28,9 +28,9 @@ class App extends React.Component {
 
   quantidadeItensCarrinho = () => {
     const localStorageCarrinho = JSON.parse(localStorage.getItem("carrinhoDeServicos"))
-	if(localStorageCarrinho){
-		this.setState({ quantidadeItensCarrinho: localStorageCarrinho.length })
-	}
+    if (localStorageCarrinho) {
+      this.setState({ quantidadeItensCarrinho: localStorageCarrinho.length })
+    }
   }
 
   mudarDePagina = (pagina, id) => {
