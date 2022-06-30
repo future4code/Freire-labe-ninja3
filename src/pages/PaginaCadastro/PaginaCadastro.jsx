@@ -10,7 +10,7 @@ import { AiOutlineBarcode } from "react-icons/ai";
 import PixIcon from "@mui/icons-material/Pix";
 import {GrFormAdd} from "react-icons/gr"
 import { RiArrowGoBackFill } from "react-icons/ri";
-
+//cometario teste 
 
 const headers = {
   headers: {
