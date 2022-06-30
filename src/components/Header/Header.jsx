@@ -1,22 +1,35 @@
 import React from "react";
-import { Container, Menu, Carrinho, BoxMenu, Li1, Li2, Li3 } from "./style";
-
-
+import { Container, Menu, Carrinho, BoxMenu, Li1 } from "./style";
+import Logo from "../../img/Logo-header.png";
+import { AiOutlineShoppingCart } from "react-icons/ai";
+import { AiOutlineHome } from "react-icons/ai";
 
 export default class Header extends React.Component {
-    render() {
-        return (
-            <Container>
-                <div className="Logo" onClick={() => this.props.mudarDePagina("inicio")} >LabeNinja</div>
-                <BoxMenu>
-                    <Menu>
-                        <Li1 paginaAtual={this.props.paginaAtual}><p onClick={() => this.props.mudarDePagina("inicio")}>Inicio</p></Li1>
-                        <Li2 paginaAtual={this.props.paginaAtual}><p onClick={() => this.props.mudarDePagina("cadastro")}>Cadastrar Serviço</p></Li2>
-                        <Li3 paginaAtual={this.props.paginaAtual}><p onClick={() => this.props.mudarDePagina("servicos")}>Contratar Serviço</p></Li3>
-                    </Menu>
-                    <Carrinho paginaAtual={this.props.paginaAtual} onClick={() => this.props.mudarDePagina("carrinho")}>Carrinho</Carrinho>
-                </BoxMenu>
-            </Container>
-        )
-    }
+  render() {
+    return (
+      <Container>
+        <div
+          className="Logo"
+          onClick={() => this.props.mudarDePagina("inicio")}
+        >
+          <img id="ImgLogo" src={Logo} alt="Logo Labeninja" />
+        </div>
+        <BoxMenu>
+          <Menu>
+            <Li1 paginaAtual={this.props.paginaAtual}>
+              <p onClick={() => this.props.mudarDePagina("inicio")}>
+                <AiOutlineHome size="23px" />
+              </p>
+            </Li1>
+          </Menu>
+          <Carrinho
+            paginaAtual={this.props.paginaAtual}
+            onClick={() => this.props.mudarDePagina("carrinho")}
+          >
+            <AiOutlineShoppingCart size="23px" />
+          </Carrinho>
+        </BoxMenu>
+      </Container>
+    );
+  }
 }
