@@ -1,14 +1,15 @@
-import { Container } from "./style";
+import { Container,CssTextField } from "./style";
 import Axios from "axios";
 import React from "react";
 import { labeninjasURL } from "../../constants/labeninjasAPI";
 import Swal from "sweetalert2";
 import Switch from "@mui/material/Switch";
-import TextField from "@mui/material/TextField";
-import {FaCcPaypal} from "react-icons/fa"
-import {BsCreditCard2Back} from "react-icons/bs"
-import {AiOutlineBarcode} from "react-icons/ai"
-import PixIcon from '@mui/icons-material/Pix';
+import { FaCcPaypal } from "react-icons/fa";
+import { BsCreditCard2Back } from "react-icons/bs";
+import { AiOutlineBarcode } from "react-icons/ai";
+import PixIcon from "@mui/icons-material/Pix";
+import {GrFormAdd} from "react-icons/gr"
+import { RiArrowGoBackFill } from "react-icons/ri";
 
 
 const headers = {
@@ -17,7 +18,6 @@ const headers = {
   },
 };
 
-
 export default class PaginaCadastro extends React.Component {
   state = {
     title: "",
@@ -25,10 +25,10 @@ export default class PaginaCadastro extends React.Component {
     dueDate: "",
     price: "",
     menthods: [
-      { name: "Cartão" ,icon:<BsCreditCard2Back size={"40px"}/> },
-      { name: "PayPal",icon:<FaCcPaypal size={"40px"}/>},
-      { name: "Pix" , icon:< PixIcon fontSize={"large"}/>},
-      { name: "Boleto" ,icon:<AiOutlineBarcode size={"40px"}/> },
+      { name: "Cartão", icon: <BsCreditCard2Back size={"38px"} /> },
+      { name: "PayPal", icon: <FaCcPaypal size={"38px"} /> },
+      { name: "Pix", icon: <PixIcon fontSize={"large"} /> },
+      { name: "Boleto", icon: <AiOutlineBarcode size={"38px"} /> },
     ],
     paymentMethods: [],
   };
@@ -93,10 +93,6 @@ export default class PaginaCadastro extends React.Component {
           price: "",
           paymentMethods: [],
         });
-        // let boxes = document.getElementsByName("metodo");
-        // for (let i = 0; i < boxes.length; i++) {
-        //   boxes[i].checked = false;
-        // }
       })
       .catch((err) => {
         Swal.fire({
@@ -111,12 +107,10 @@ export default class PaginaCadastro extends React.Component {
   };
 
   render() {
-    
-
     const checkBoxespaymentMethods = this.state.menthods.map(
       (paymentMethods) => {
         return (
-          <li>
+          <li key={paymentMethods.name}>
             <label className="pagamentos">
               <Switch
                 color="primary"
@@ -140,17 +134,17 @@ export default class PaginaCadastro extends React.Component {
       <Container>
         <h2>Cadastro de serviço</h2>
         <div>
-          <TextField
+          <CssTextField
             type="text"
             name="title"
             value={this.state.title}
             onChange={this.onChangetitle}
             id="outlined-basic"
-            label="Titulo"
+            label="Serviço"
             variant="outlined"
           />
 
-          <TextField
+          <CssTextField
             name="description"
             cols="20"
             rows="3"
@@ -159,9 +153,9 @@ export default class PaginaCadastro extends React.Component {
             id="outlined-basic"
             label="Descrição"
             variant="outlined"
-          ></TextField>
+          ></CssTextField>
 
-          <TextField
+          <CssTextField
             type="number"
             name="price"
             placeholder="R$"
@@ -172,7 +166,7 @@ export default class PaginaCadastro extends React.Component {
             label="Preço"
             variant="outlined"
           />
-          <TextField
+          <CssTextField
             type="date"
             name="dueDate"
             value={this.state.dueDate}
@@ -180,15 +174,14 @@ export default class PaginaCadastro extends React.Component {
             id="outlined-basic"
             label=""
             variant="outlined"
-            
           />
 
           <h4>Formas de pagamento:</h4>
           <div className="pay">{checkBoxespaymentMethods}</div>
         </div>
         <div className="botoes">
-          <button>Voltar</button>
-          <button onClick={this.createJob}>Cadastrar Serviço</button>
+          <button>Voltar <RiArrowGoBackFill/></button>
+          <button onClick={this.createJob}>Cadastrar <GrFormAdd/></button>
         </div>
       </Container>
     );

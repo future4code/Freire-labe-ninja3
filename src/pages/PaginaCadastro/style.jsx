@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import TextField from "@mui/material/TextField";
 
 export const Container = styled.div`
   display: flex;
@@ -11,8 +12,7 @@ export const Container = styled.div`
   border: none;
   box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.45);
   border-radius: 12px;
-
-  
+  font-family: "Montserrat";
 
   div {
     display: flex;
@@ -21,8 +21,9 @@ export const Container = styled.div`
     gap: 10px;
   }
 
-  h2 , h4{
-    border-bottom:1px solid #f5dd1a;
+  h2,
+  h4 {
+    border-bottom: 1px solid #f5dd1a;
   }
 
   .pay {
@@ -34,6 +35,8 @@ export const Container = styled.div`
   #outlined-basic {
     width: 30vw;
     gap: 10px;
+    cursor: pointer;
+    box-shadow: 3px 3px #3f3f3c16;
   }
 
   .botoes {
@@ -46,11 +49,16 @@ export const Container = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
+    cursor: pointer;
   }
 
   button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     gap: 8px;
     background-color: #f5dd1a;
+    font-family: "Montserrat";
     border: none;
     width: 150px;
     border-radius: 5px;
@@ -61,18 +69,41 @@ export const Container = styled.div`
     }
   }
 
-  @media screen and (min-device-width : 320px) and (max-device-width : 480px) {
-        width:90vw;
-
-        #outlined-basic {
-    width: 70vw;
-    gap: 10px;
-  }
-
-        
-
+  .css-5ryogn-MuiButtonBase-root-MuiSwitch-switchBase.Mui-checked {
+    color: #f5dd1a;
     
 }
-`
+.css-5ryogn-MuiButtonBase-root-MuiSwitch-switchBase.Mui-checked+.MuiSwitch-track {
+    background-color: #0a090a;
+}
 
- 
+
+  @media screen and (min-device-width: 320px) and (max-device-width: 480px) {
+    width: 90vw;
+
+    #outlined-basic {
+      width: 70vw;
+      gap: 10px;
+    }
+  }
+`;
+
+export const CssTextField = styled(TextField)({
+  '& label.Mui-focused': {
+      color: '#0F0801',
+  },
+  '& .MuiInput-underline:after': {
+      borderBottomColor: '#0F0801',
+  },
+  '& .MuiOutlinedInput-root': {
+      '& fieldset': {
+          borderColor: 'none',
+      },
+      '&:hover fieldset': {
+          borderColor: 'none',
+      },
+      '&.Mui-focused fieldset': {
+          borderColor: '#0F0801',
+      },
+  },
+});
