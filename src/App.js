@@ -62,7 +62,7 @@ class App extends React.Component {
           )
         case "carrinho":
           return (
-            <PaginaCarrinho />
+            <PaginaCarrinho mudarDePagina={this.mudarDePagina}/>
           )
         default:
           return (
