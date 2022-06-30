@@ -1,16 +1,33 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
+    font-family: 'Montserrat';
     width: 100%;
-    min-height: 90vh;
+    min-height: 100vh;
     max-width: 1280px;
     display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    margin: 15px 0 ;
+`
+
+
+export const Box = styled.div`
+    width: 90%;
+    display: flex;
     flex-direction: column;
-    justify-content: flex-start;
+    justify-content: center;
     align-items: center;
+    box-shadow: 0px 0px 4px  rgba(0 0 0 / 0.45);
+    border-radius: 12px;
+    padding: 25px 0 0;
+
+    @media (max-width: 1000px){
+        width: 90%;
+    }
+
 
     p{
-        font-family: 'Montserrat';
         font-style: normal;
         font-weight: 700;
         font-size: 32px;
@@ -23,10 +40,13 @@ export const Container = styled.div`
         @media(max-width: 801px){
             font-size: 24px;
         }
+
+        @media(max-width: 401px){
+            font-size: 24px;
+        }
     }
 
     #Carrinho{
-        font-family: 'Montserrat';
         margin: 26px 0px;
         font-style: normal;
         font-weight: 700;
@@ -36,7 +56,6 @@ export const Container = styled.div`
     }
 
     .Botao{
-        font-family: 'Montserrat';
         font-style: normal;
         font-weight: 700;
         color: #32142A;
@@ -63,6 +82,15 @@ export const Container = styled.div`
 
     #Margim{
         margin: 45px 40px;
+
+        @media(max-width: 801px){
+            font-size: 18px;
+         }
+
+        @media(max-width: 401px){
+            font-size: 16px;
+        }
+
     }
 
 
@@ -70,7 +98,7 @@ export const Container = styled.div`
 export const BoxProduto = styled.div`
     display: flex;
     align-items: center;
-    box-shadow: 0px 0px 16px 1px rgba(0, 0, 0, 0.25);
+    box-shadow: 0px 0px 16px 1px  rgba(0, 0, 0, 0.25);
     height: 90px;
     margin: 16px 16px;
     padding: 0 18px;
@@ -78,7 +106,6 @@ export const BoxProduto = styled.div`
     border-radius: 12px;
 
     p{
-        font-family: 'Montserrat';
         font-style: normal;
         font-weight: 700;
         font-size: 28px;
@@ -86,6 +113,17 @@ export const BoxProduto = styled.div`
 
         @media(max-width: 801px){
             font-size: 18px;
+        }
+
+        
+        @media(max-width: 801px){
+            font-size: 20px;
+            line-height: 22px;
+        }
+
+        @media(max-width: 401px){
+            font-size: 16px;
+            line-height: 22px;
         }
     }
         
@@ -106,6 +144,7 @@ export const BoxCarrinho = styled.div`
 
     p{
         margin: 0;
+        margin-right: 20px;
     }
 
 `
@@ -137,6 +176,15 @@ export const BoxInfoCarrinhio = styled.div`
 
         .Botao{
             margin-top: 20px;
+            font-size: 18px;
+
+        }
+    }
+
+    @media(max-width: 401px){
+
+        .Botao{
+            font-size: 16px;
         }
     }
 

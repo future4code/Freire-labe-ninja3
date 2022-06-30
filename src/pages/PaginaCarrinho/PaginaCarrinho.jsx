@@ -1,5 +1,5 @@
 import React from "react";
-import { Container, BoxProduto, ContainerItens, BoxCarrinho, BoxProdutos, BoxInfoCarrinhio } from "./style";
+import { Container, Box, BoxProduto, ContainerItens, BoxCarrinho, BoxProdutos, BoxInfoCarrinhio } from "./style";
 import { MdOutlineDelete } from "react-icons/md";
 import { RiArrowGoBackFill } from "react-icons/ri";
 import Swal from "sweetalert2";
@@ -16,8 +16,8 @@ export default class PaginaCarrinho extends React.Component {
     }
 
     componentDidMount() {
-        if(JSON.parse(localStorage.getItem("carrinho")).length > 0){
-           this.setState({itensCarrinho: JSON.parse(localStorage.getItem("carrinho"))})
+        if (JSON.parse(localStorage.getItem("carrinho")).length > 0) {
+            this.setState({ itensCarrinho: JSON.parse(localStorage.getItem("carrinho")) })
         }
     }
 
@@ -35,9 +35,9 @@ export default class PaginaCarrinho extends React.Component {
         let valorTotal = 0;
         this.state.itensCarrinho.map(item => {
             return valorTotal = valorTotal + parseInt(item.preco)
-  
+
         })
-       return valorTotal
+        return valorTotal
     }
 
 
@@ -45,7 +45,7 @@ export default class PaginaCarrinho extends React.Component {
         Swal.fire({
             position: 'center',
             icon: 'success',
-            title: 'Compra efetuada com sucesso!',
+            title: 'Serviço(os) contratado(os) com sucesso!',
             showConfirmButton: true,
             timer: 4500,
             confirmButtonColor: '#F5DD1A',
@@ -68,33 +68,35 @@ export default class PaginaCarrinho extends React.Component {
         }
         )
 
-       const ValorTotal = () => {
+        const ValorTotal = () => {
             let valorTotal = 0;
             this.state.itensCarrinho.map(item => {
                 return valorTotal = valorTotal + parseInt(item.preco)
-      
+
             })
-           return <p>Total R$: {valorTotal}</p>
+            return <p>Total R$: {valorTotal}</p>
         }
 
         return (
             <Container>
-                <p id="Carrinho">Carrinho</p>
-                {this.state.itensCarrinho.length > 0 ?
-                    (<BoxCarrinho>
-                        <BoxProdutos>
-                            <p id="Servicos">Serviço(os): {this.state.itensCarrinho.length}</p>
-                            <ContainerItens>
-                                {renderizarCarrinho}
-                            </ContainerItens>
-                            <BoxInfoCarrinhio>
-                                <ValorTotal/>
-                                <button onClick={this.efetuarCompra} className="Botao">Contratar Serviço(os)</button>
-                            </BoxInfoCarrinhio>
-                        </BoxProdutos>
-                    </BoxCarrinho>)
-                    : (<p>Carrinho Vazio</p>)}
-                <button onClick={() => this.props.mudarDePagina("servicos")} className="Botao" id="Margim"><RiArrowGoBackFill />Voltar para lista de serviços</button>
+                <Box>
+                    <h2 id="Carrinho">Carrinho</h2>
+                    {this.state.itensCarrinho.length > 0 ?
+                        (<BoxCarrinho>
+                            <BoxProdutos>
+                                <p id="Servicos">Serviço(os): {this.state.itensCarrinho.length}</p>
+                                <ContainerItens>
+                                    {renderizarCarrinho}
+                                </ContainerItens>
+                                <BoxInfoCarrinhio>
+                                    <ValorTotal />
+                                    <button onClick={this.efetuarCompra} className="Botao">Contratar Serviço(os)</button>
+                                </BoxInfoCarrinhio>
+                            </BoxProdutos>
+                        </BoxCarrinho>)
+                        : (<p>Carrinho Vazio</p>)}
+                    <button onClick={() => this.props.mudarDePagina("servicos")} className="Botao" id="Margim"><RiArrowGoBackFill size="34px" />Voltar para lista de serviços</button>
+                </Box>
             </Container>
         )
     }
