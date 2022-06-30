@@ -1,15 +1,25 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  min-height: 100vh;
+  height: 78vh;
   display: flex;
   flex-direction: column;
   line-height: 1.3;
+  max-width: 1280px;
+  @media (max-width: 1440px) {
+    height: 78vh;
+  }
+  @media (max-width: 1280px) {
+    height: 78vh;
+  }
+  @media (max-width: 800px) {
+    height: 76vh;
+  }
 `;
 
 export const Detalhes = styled.div`
-  max-width: 1280px;
-  width: 60%;
+  width: 90%;
+  min-width: 600px;
   padding: 15px;
   margin: auto;
   box-sizing: border-box;
@@ -27,7 +37,8 @@ export const Detalhes = styled.div`
   }
   @media (max-width: 1000px) {
     margin: auto;
-    width: 90%;
+    width: 80vw;
+    min-width: 250px;
   }
 `;
 
@@ -48,7 +59,7 @@ export const Botoes = styled.div`
       cursor: pointer;
     }
   }
-  @media (max-width: 650px) {
+  @media (max-width: 800px) {
     flex-direction: column;
     gap: 10px;
   }

@@ -13,12 +13,8 @@ export default class Footer extends React.Component {
     return (
       <Container>
         <div className="footer">
-          <img
-            id="ImgFooter"
-            className=""
-            src={Rodape}
-            alt="Logo labeninja no rodapé"
-          />
+          <h2>LABENINJA</h2>
+        
         </div>
         <div className="RedeSociais">
           <Menu>
@@ -43,6 +39,7 @@ export default class Footer extends React.Component {
               <BsWhatsapp size="23px" color="#f5dd1a" />{" "}
             </a>
           </Menu>
+          <p> @2022 Alguns direitos reservados.</p>
         </div>
       </Container>
     );

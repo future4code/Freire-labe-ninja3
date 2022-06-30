@@ -15,6 +15,19 @@ export const ContainerFather = styled.div`
     justify-items: center;
     padding: 10px;
   }
+
+  .css-1yk1gt9-MuiInputBase-root-MuiOutlinedInput-root-MuiSelect-root.Mui-focused .MuiOutlinedInput-notchedOutline {
+    border-color: #030303;
+    border-width: 2px;
+}
+.cQWWMA .css-1yk1gt9-MuiInputBase-root-MuiOutlinedInput-root-MuiSelect-root.Mui-focused .MuiOutlinedInput-notchedOutline {
+    border-color: #030303;
+    border-width: 2px;
+}
+.css-1sumxir-MuiFormLabel-root-MuiInputLabel-root.Mui-focused {
+    color:#030303;
+}
+
 `
 export const ContainerInput = styled.div`
     display: flex;

@@ -5,8 +5,7 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 10px;
-  margin: 10px;
+  margin: 5px;
   border: 1px solid black;
   width: 50vw;
   border: none;
@@ -18,12 +17,7 @@ export const Container = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 10px;
-  }
-
-  h2,
-  h4 {
-    border-bottom: 1px solid #f5dd1a;
+    gap: 7px;
   }
 
   .pay {
@@ -60,7 +54,7 @@ export const Container = styled.div`
     background-color: #f5dd1a;
     font-family: "Montserrat";
     border: none;
-    width: 150px;
+    width: 130px;
     border-radius: 5px;
     padding: 8px 16px;
     font-weight: bold;
@@ -77,14 +71,15 @@ export const Container = styled.div`
     background-color: #0a090a;
 }
 
-
   @media screen and (min-device-width: 320px) and (max-device-width: 480px) {
     width: 90vw;
-
+    
     #outlined-basic {
       width: 70vw;
+      
       gap: 10px;
     }
+    
   }
 `;
 

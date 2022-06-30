@@ -9,6 +9,8 @@ export const Container = styled.header`
   padding: 15px;
   background-color: #0f0801;
   color: #f5dd1a;
+  width: 100%;
+  box-sizing: border-box;
 
   .Logo {
     cursor: pointer;

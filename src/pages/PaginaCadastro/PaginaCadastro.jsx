@@ -10,7 +10,6 @@ import { AiOutlineBarcode } from "react-icons/ai";
 import PixIcon from "@mui/icons-material/Pix";
 import {GrFormAdd} from "react-icons/gr"
 import { RiArrowGoBackFill } from "react-icons/ri";
-//cometario teste 
 
 const headers = {
   headers: {
@@ -178,9 +177,10 @@ export default class PaginaCadastro extends React.Component {
 
           <h4>Formas de pagamento:</h4>
           <div className="pay">{checkBoxespaymentMethods}</div>
+          
         </div>
         <div className="botoes">
-          <button>Voltar <RiArrowGoBackFill/></button>
+          <button onClick={()=>{this.props.mudarDePagina("inicio")}}> Voltar <RiArrowGoBackFill/></button>
           <button onClick={this.createJob}>Cadastrar <GrFormAdd/></button>
         </div>
       </Container>

@@ -1,14 +1,10 @@
 import React from "react";
 import axios from "axios";
-import { BsFillCartPlusFill } from "react-icons/bs";
 import { RiArrowGoBackFill } from "react-icons/ri";
-import Header from "../../components/Header/Header";
-import Footer from "../../components/Footer/Footer";
 import { Container, Detalhes, Botoes } from "./style";
 import { labeninjasURL, key } from "../../constants/labeninjasAPI";
-import mudarDePagina from "../../App";
 import PaginaCarrinho from "../PaginaCarrinho/PaginaCarrinho";
-// id para testes = c249defe-bde3-4bf1-a06d-110bcefcd470
+import { MdOutlineAddShoppingCart } from "react-icons/md";
 export default class PaginaDetalhes extends React.Component {
   state = {
     servico: [],
@@ -20,21 +16,10 @@ export default class PaginaDetalhes extends React.Component {
     this.getJobById();
   };
 
-  //   getJobs = async () => {
-  //     try {
-  //       const response = await axios.get(`${labeninjasURL}/jobs`, {
-  //         headers: { Authorization: key },
-  //       });
-  //         this.setState({ servico: response.data });
-  //     } catch (error) {
-  //       console.log("houve um erro:", error.response.data);
-  //     }
-  //   };
-
   getJobById = async (id) => {
     try {
       const response = await axios.get(
-        `${labeninjasURL}/jobs/c249defe-bde3-4bf1-a06d-110bcefcd470`,
+        `${labeninjasURL}/jobs/${this.props.idDoServico}`,
         {
           headers: { Authorization: key },
         }
@@ -44,7 +29,6 @@ export default class PaginaDetalhes extends React.Component {
         pagamentos: response.data.paymentMethods,
         data: response.data.dueDate,
       });
-      console.log(this.state.servico);
     } catch (error) {}
   };
 
@@ -55,14 +39,11 @@ export default class PaginaDetalhes extends React.Component {
     />;
   };
 
-  // id = "c249defe-bde3-4bf1-a06d-110bcefcd470";
-  // id2 = "250ce4b4-83d3-402b-a304-6c9b9a9329e9"
   render() {
     const formasPagamento = this.state.pagamentos.join(", ");
 
     return (
       <Container>
-        <Header />
         <Detalhes>
           <h2>{this.state.servico.title}</h2>
           <p>{this.state.servico.description}</p>
@@ -78,13 +59,12 @@ export default class PaginaDetalhes extends React.Component {
               <RiArrowGoBackFill />
               Voltar para lista de serviços
             </button>
-            <button onClick={this.adicionarCarrinho}>
-              <BsFillCartPlusFill />
+            <button onClick={() => this.props.adicionarAoCarrinho(this.props.idDoServico, this.state.servico.title, this.state.servico.price)}>
+              <MdOutlineAddShoppingCart />
               Adicionar
             </button>
           </Botoes>
         </Detalhes>
-        <Footer />
       </Container>
     );
   }
