@@ -18,7 +18,7 @@ export default class Header extends React.Component {
           <Menu>
             <Li1 paginaAtual={this.props.paginaAtual}>
               <p onClick={() => this.props.mudarDePagina("inicio")}>
-                <AiOutlineHome size="23px" />
+                <AiOutlineHome size="30px" />
               </p>
             </Li1>
           </Menu>
@@ -26,7 +26,7 @@ export default class Header extends React.Component {
             paginaAtual={this.props.paginaAtual}
             onClick={() => this.props.mudarDePagina("carrinho")}
           >
-            <AiOutlineShoppingCart size="23px" />
+            <AiOutlineShoppingCart size="30px" />
           </Carrinho>
         </BoxMenu>
       </Container>

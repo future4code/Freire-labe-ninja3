@@ -5,18 +5,21 @@ import { Container, Detalhes, Botoes } from "./style";
 import { labeninjasURL, key } from "../../constants/labeninjasAPI";
 import PaginaCarrinho from "../PaginaCarrinho/PaginaCarrinho";
 import { MdOutlineAddShoppingCart } from "react-icons/md";
+import Loader from "../../components/Loader/Loader";
+
 export default class PaginaDetalhes extends React.Component {
   state = {
     servico: [],
     pagamentos: [],
     data: "",
+    loader: true
   };
 
   componentDidMount = () => {
     this.getJobById();
   };
 
-  getJobById = async (id) => {
+  getJobById = async () => {
     try {
       const response = await axios.get(
         `${labeninjasURL}/jobs/${this.props.idDoServico}`,
@@ -28,6 +31,7 @@ export default class PaginaDetalhes extends React.Component {
         servico: response.data,
         pagamentos: response.data.paymentMethods,
         data: response.data.dueDate,
+        loader: false,
       });
     } catch (error) {}
   };
@@ -45,6 +49,10 @@ export default class PaginaDetalhes extends React.Component {
     return (
       <Container>
         <Detalhes>
+          {this.state.loader ? 
+          <Loader /> 
+          :
+          <>
           <h2>{this.state.servico.title}</h2>
           <p>{this.state.servico.description}</p>
           <h3>Disponível até</h3>
@@ -53,13 +61,26 @@ export default class PaginaDetalhes extends React.Component {
           </p>
           <h3>Formas de Pagamento:</h3>
           <p>{formasPagamento}</p>
-          <p>Valor: R$ {this.state.servico.price}</p>
+          <p>
+            Valor: R$ {parseFloat(this.state.servico.price).toFixed(2).replace(".", ",")}
+          </p>
+          </>
+          }
+          
           <Botoes>
             <button onClick={() => this.props.mudarDePagina("servicos")}>
               <RiArrowGoBackFill />
               Voltar para lista de serviços
             </button>
-            <button onClick={() => this.props.adicionarAoCarrinho(this.props.idDoServico, this.state.servico.title, this.state.servico.price)}>
+            <button
+              onClick={() =>
+                this.props.adicionarAoCarrinho(
+                  this.props.idDoServico,
+                  this.state.servico.title,
+                  this.state.servico.price
+                )
+              }
+            >
               <MdOutlineAddShoppingCart />
               Adicionar
             </button>

@@ -8,18 +8,17 @@ import {
   BoxProdutos,
   BoxInfoCarrinhio,
   CarrinhoVazio,
+  ValorLixeira
 } from "./style";
 import { MdOutlineDelete } from "react-icons/md";
 import { RiArrowGoBackFill } from "react-icons/ri";
 import Swal from "sweetalert2";
+import ProductionQuantityLimitsIcon from '@mui/icons-material/ProductionQuantityLimits';
+
 
 export default class PaginaCarrinho extends React.Component {
   state = {
-    itensCarrinho: [
-      { id: 1, nome: "Desenvolvedor Web", preco: "1000" },
-      { id: 2, nome: "Desenvolvedor Web", preco: "1000" },
-      { id: 3, nome: "Desenvolvedor Web", preco: "1000" },
-    ],
+    itensCarrinho: [],
     valorTotal: "",
   };
 
@@ -67,10 +66,12 @@ export default class PaginaCarrinho extends React.Component {
       return (
         <BoxProduto key={item.id}>
           <p>{item.nome}</p>
-          <p>R$: {parseInt(item.valor).toFixed(2).replace('.', ',')}</p>
-          <div onClick={() => this.excluirDoCarrinho(item.id)}>
+          <ValorLixeira>
+            <p>R$: {parseInt(item.valor).toFixed(2).replace('.', ',')}</p>
+          <div id="btnExcluir" onClick={() => this.excluirDoCarrinho(item.id)}>
             <MdOutlineDelete color="#C20330" size="45px" />
           </div>
+          </ValorLixeira>          
         </BoxProduto>
       );
     });
@@ -103,14 +104,17 @@ export default class PaginaCarrinho extends React.Component {
               </BoxProdutos>
             </BoxCarrinho>
           ) : (
-            <CarrinhoVazio>Carrinho Vazio</CarrinhoVazio>
+            <CarrinhoVazio>
+               <ProductionQuantityLimitsIcon sx={{ color: "#f5dd1a", fontSize: 40 }}/>
+              <h4>Carrinho Vazio</h4>
+            </CarrinhoVazio>
           )}
           <button
             onClick={() => this.props.mudarDePagina("servicos")}
             className="Botao"
             id="Margim"
           >
-            <RiArrowGoBackFill size="34px" />
+            <RiArrowGoBackFill size="20px" />
             Voltar para lista de serviços
           </button>
         </Box>
