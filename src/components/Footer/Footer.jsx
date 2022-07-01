@@ -1,7 +1,6 @@
 import React from "react";
 import { Container } from "./style";
 import { Menu } from "./style";
-import Rodape from "../../img/Logo-rodape.png";
 import { BsFacebook } from "react-icons/bs";
 import { BsTwitter } from "react-icons/bs";
 import { BsInstagram } from "react-icons/bs";
@@ -13,34 +12,34 @@ export default class Footer extends React.Component {
     return (
       <Container>
         <div className="footer">
-          <h2>LABENINJA</h2>
-        
-        </div>
+          <h3>LABENINJA</h3>
+          </div>
         <div className="RedeSociais">
           <Menu>
-            <a href="https://www.facebook.com" target="_blank">
+            <a href="https://www.facebook.com" target="_blank" rel="noreferrer">
               {" "}
-              <BsFacebook size="23px" color="#f5dd1a" />{" "}
+              <BsFacebook size="18px" color="#f5dd1a" />{" "}
             </a>
-            <a href="https://twitter.com" target="_blank">
+            <a href="https://twitter.com" target="_blank" rel="noreferrer">
               {" "}
-              <BsTwitter size="23px" color="#f5dd1a" />{" "}
+              <BsTwitter size="18px" color="#f5dd1a" />{" "}
             </a>
-            <a href="https://instagram.com" target="_blank">
+            <a href="https://instagram.com" target="_blank" rel="noreferrer">
               {" "}
-              <BsInstagram size="23px" color="#f5dd1a" />{" "}
+              <BsInstagram size="18px" color="#f5dd1a" />{" "}
             </a>
-            <a href="https://www.gmail.com" target="_blank">
+            <a href="https://www.gmail.com" target="_blank" rel="noreferrer">
               {" "}
-              <AiOutlineMail size="23px" color="#f5dd1a" />{" "}
+              <AiOutlineMail size="18px" color="#f5dd1a" />{" "}
             </a>
-            <a href="https://web.whatsapp.com" target="_blank">
+            <a href="https://web.whatsapp.com" target="_blank" rel="noreferrer">
               {" "}
-              <BsWhatsapp size="23px" color="#f5dd1a" />{" "}
+              <BsWhatsapp size="18px" color="#f5dd1a" />{" "}
             </a>
           </Menu>
-          <p> @2022 Alguns direitos reservados.</p>
+          
         </div>
+        <p> @2022 Alguns direitos reservados.</p>
       </Container>
     );
   }

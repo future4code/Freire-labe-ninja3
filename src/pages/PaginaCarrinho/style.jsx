@@ -3,17 +3,21 @@ import styled from "styled-components";
 export const Container = styled.div`
   font-family: "Montserrat";
   width: 100%;
-  min-height: 100vh;
+  min-height: 80vh;
   max-width: 1280px;
   display: flex;
   justify-content: center;
   align-items: flex-start;
   margin: 15px 0;
+  @media (max-width: 1300px) {
+    min-height: 79.7vh;
+  }
 `;
 
 export const Box = styled.div`
-  width: 90%;
+  width: 60%;
   display: flex;
+  margin: auto;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -28,11 +32,11 @@ export const Box = styled.div`
   p {
     font-style: normal;
     font-weight: 700;
-    font-size: 18px;
     line-height: 39px;
 
     display: flex;
     align-items: center;
+    justify-content: center;
     text-align: center;
 
     @media (max-width: 801px) {
@@ -42,7 +46,6 @@ export const Box = styled.div`
     @media (max-width: 401px) {
       font-size: 24px;
     }
-
   }
 
   #Carrinho {
@@ -57,24 +60,14 @@ export const Box = styled.div`
     font-style: normal;
     font-weight: 700;
     color: #32142a;
-
     border: none;
     background: #f5dd1a;
     border-radius: 12px;
-    padding: 20px 100px;
-    font-size: 24px;
+    padding: 8px 16px;
     cursor: pointer;
-
     display: flex;
     align-items: center;
-
-    @media (max-width: 801px) {
-      padding: 20px 50px;
-    }
-
-    @media (max-width: 401px) {
-      font-size: 20px;
-    }
+    height: 45px;
   }
 
   #Margim {
@@ -82,6 +75,7 @@ export const Box = styled.div`
 
     @media (max-width: 801px) {
       font-size: 18px;
+      margin: 10px auto;
     }
 
     @media (max-width: 401px) {
@@ -98,6 +92,9 @@ export const BoxProduto = styled.div`
   padding: 0 18px;
   justify-content: space-between;
   border-radius: 12px;
+  @media (max-width: 400px) {
+    height: 100%;
+  }
 
   p {
     font-style: normal;
@@ -120,7 +117,7 @@ export const BoxProduto = styled.div`
     }
   }
 
-  div {
+  #btnExcluir {
     cursor: pointer;
     opacity: 0.8;
     :hover {
@@ -128,6 +125,12 @@ export const BoxProduto = styled.div`
       transform: scale(1.2);
     }
   }
+`;
+
+export const ValorLixeira = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;
 
 export const BoxCarrinho = styled.div`
@@ -145,7 +148,9 @@ export const BoxProdutos = styled.div`
   flex-direction: column;
 
   #Servicos {
-    margin-left: 18px;
+    justify-content: flex-start;
+    margin-left: 20px;
+    font-size: 18px;
   }
 `;
 
@@ -174,8 +179,12 @@ export const BoxInfoCarrinhio = styled.div`
       font-size: 16px;
     }
   }
-`
+`;
 
 export const CarrinhoVazio = styled.div`
-    font-size: 16px;
-`
+  font-size: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+`;

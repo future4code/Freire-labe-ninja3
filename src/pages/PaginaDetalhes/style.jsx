@@ -1,19 +1,14 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  height: 78vh;
+  font-family: "Montserrat";
+  height: 80vh;
   display: flex;
   flex-direction: column;
   line-height: 1.3;
   max-width: 1280px;
-  @media (max-width: 1440px) {
-    height: 78vh;
-  }
-  @media (max-width: 1280px) {
-    height: 78vh;
-  }
   @media (max-width: 800px) {
-    height: 76vh;
+    height: 74vh;
   }
 `;
 
@@ -48,6 +43,7 @@ export const Botoes = styled.div`
   button {
     display: flex;
     gap: 8px;
+    height: 45px;
     background-color: #f5dd1a;
     border: none;
     border-radius: 12px;

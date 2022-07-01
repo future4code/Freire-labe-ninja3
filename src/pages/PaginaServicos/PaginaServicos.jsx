@@ -11,15 +11,19 @@ import {
   Botoes,
   Button,
   CssTextField,
+  ButtonDelete,
+  ButtonCarrinho,
 } from "./style";
 import { labeninjasURL, key } from "../../constants/labeninjasAPI";
 import { MdOutlineAddShoppingCart } from "react-icons/md";
 import { GrAdd } from "react-icons/gr";
 import { convertDate } from "../../utils/convertData";
+import { RiDeleteBin2Fill } from "react-icons/ri";
 import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
+import Loader from "../../components/Loader/Loader";
 
 export default class PaginaServicos extends React.Component {
   state = {
@@ -29,6 +33,7 @@ export default class PaginaServicos extends React.Component {
     maxVal: "",
     search: "",
     order: "",
+    loader: true,
   };
 
   componentDidMount() {
@@ -74,6 +79,7 @@ export default class PaginaServicos extends React.Component {
         this.setState({
           jobs: response.data.jobs,
           filterJobs: response.data.jobs,
+          loader: false,
         });
         console.log(response);
       })
@@ -82,22 +88,34 @@ export default class PaginaServicos extends React.Component {
       });
   };
 
-    deleteJob = (jobId) => {
-    if(window.confirm("Você deseja excluir esse serviço?")) {    
-        axios.
-            delete(`${labeninjasURL}/jobs/${jobId}`, {
-                headers: {
-                    Authorization: key,
-                }
-            })
-        .then((response) => {
-            this.getAllJobs()
-        })
-        .catch((error) => {
-            console.log(error)
-        })
-    }
-  }
+  deleteJob = (jobId) => {
+    Swal.fire({
+      title: "Tem certeza?",
+      text: "Você não será capaz de reverter isso!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Sim, Exclua!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        axios
+          .delete(`${labeninjasURL}/jobs/${jobId}`, {
+            headers: {
+              Authorization: key,
+            },
+          })
+          .then((response) => {
+            Swal.fire("Excluido!", "Seu arquivo foi excluído.", "success");
+
+            this.getAllJobs();
+          })
+          .catch((error) => {
+            console.log(error);
+          });
+      }
+    });
+  };
 
   filterJobs = () => {
     const max = this.state.maxVal ? Number(this.state.maxVal) : Infinity;
@@ -141,33 +159,30 @@ export default class PaginaServicos extends React.Component {
             </Data>
             <p>
               <b>Valor: </b>
-              <b>R${job.price.toFixed(2).replace('.', ',')}</b>
+              <b>R${job.price.toFixed(2).replace(".", ",")}</b>
             </p>
             <Botoes>
               <Button
                 onClick={() => this.props.mudarDePagina("detalhes", job.id)}
               >
                 <b>
-                  <GrAdd /> Ver detalhes
+                  <GrAdd /> Detalhes
                 </b>
               </Button>
-              <Button
+              <ButtonCarrinho
                 onClick={() =>
                   this.props.adicionarAoCarrinho(job.id, job.title, job.price)
                 }
               >
                 <b>
-                  Add ao Carrinho <MdOutlineAddShoppingCart />
+                  <MdOutlineAddShoppingCart />
                 </b>
-              </Button>
-              <Button
-                onClick={() => this.deleteJob(job.id)}
-              >
+              </ButtonCarrinho>
+              <ButtonDelete onClick={() => this.deleteJob(job.id)}>
                 <b>
-                    Excluir
+                  <RiDeleteBin2Fill />
                 </b>
-
-              </Button>
+              </ButtonDelete>
             </Botoes>
           </JobCard>
         </BodyCards>
@@ -186,17 +201,17 @@ export default class PaginaServicos extends React.Component {
           />
           <CssTextField
             id="outlined-basic"
-            label="Valor máximo"
-            variant="outlined"
-            value={this.state.maxVal}
-            onChange={this.listMaxVal}
-          />
-          <CssTextField
-            id="outlined-basic"
             label="Valor mínimo"
             variant="outlined"
             value={this.state.minVal}
             onChange={this.listMinVal}
+          />
+          <CssTextField
+            id="outlined-basic"
+            label="Valor máximo"
+            variant="outlined"
+            value={this.state.maxVal}
+            onChange={this.listMaxVal}
           />
           <FormControl sx={{ m: 0, minWidth: 250 }}>
             <InputLabel id="demo-simple-select-label">Ordenar</InputLabel>
@@ -215,7 +230,10 @@ export default class PaginaServicos extends React.Component {
             </Select>
           </FormControl>
         </ContainerInput>
-        <Cards>{jobComponents}</Cards>
+        <Cards>
+        {this.state.loader ? <Loader /> : ""}
+          {jobComponents}
+          </Cards>
       </ContainerFather>
     );
   }
