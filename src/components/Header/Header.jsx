@@ -1,5 +1,5 @@
 import React from "react";
-import { Container, Menu, Carrinho, BoxMenu, Li1 } from "./style";
+import { Container, Menu, Carrinho, BoxMenu, Li1, ItensCarrinho } from "./style";
 import Logo from "../../img/Logo-header.png";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import { AiOutlineHome } from "react-icons/ai";
@@ -27,6 +27,7 @@ export default class Header extends React.Component {
             onClick={() => this.props.mudarDePagina("carrinho")}
           >
             <AiOutlineShoppingCart size="30px" />
+            {this.props.quantidadeItensCarrinho > 0 && <ItensCarrinho>{this.props.quantidadeItensCarrinho}</ItensCarrinho>}
           </Carrinho>
         </BoxMenu>
       </Container>

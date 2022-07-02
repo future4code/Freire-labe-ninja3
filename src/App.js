@@ -53,6 +53,11 @@ class App extends React.Component {
     }
   };
 
+
+  excluirDoCarrinho = () => {
+    this.setState({quantidadeItensCarrinho: this.state.quantidadeItensCarrinho - 1});
+  }
+
   vendaConcluida = (listaDeCompras) => {
     this.setState({listaDeCompras: listaDeCompras})
   }
@@ -75,7 +80,7 @@ class App extends React.Component {
 
   quantidadeItensCarrinho = () => {
     const localStorageCarrinho = JSON.parse(
-      localStorage.getItem("carrinhoDeServicos")
+      localStorage.getItem("listaDeCompras")
     );
     if (localStorageCarrinho) {
       this.setState({ quantidadeItensCarrinho: localStorageCarrinho.length });
@@ -117,6 +122,7 @@ class App extends React.Component {
               itensCarrinho={this.state.listaDeCompras}
               mudarDePagina={this.mudarDePagina}
               vendaConcluida={this.vendaConcluida}
+              romoverDoCarrinho={this.excluirDoCarrinho}
             />
           );
         default:

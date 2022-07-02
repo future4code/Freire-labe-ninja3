@@ -36,6 +36,7 @@ export default class PaginaCarrinho extends React.Component {
     localStorage.setItem("listaDeCompras", JSON.stringify(itensCarrinho));
     this.valorTotal();
     this.props.vendaConcluida(itensCarrinho)
+    this.props.romoverDoCarrinho()
   };
 
   valorTotal = () => {

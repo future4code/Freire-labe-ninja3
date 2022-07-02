@@ -70,3 +70,15 @@ export const Carrinho = styled.div`
     opacity: 1;
   }
 `;
+
+
+export const ItensCarrinho = styled.div`
+  position: absolute;
+  color: #0f0801;
+  top: 55px;
+  right: 3px;
+  font-size: 12px;
+  padding: 1px 6px;
+  background: #f5dd1a;
+  border-radius: 50%;
+`
