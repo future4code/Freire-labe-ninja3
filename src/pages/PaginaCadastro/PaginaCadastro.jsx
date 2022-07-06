@@ -64,7 +64,7 @@ export default class PaginaCadastro extends React.Component {
     this.setState({ selected });
     console.log(selected);
   };
-
+// for push
   createJob = () => {
     const url = `${labeninjasURL}/jobs`;
     const body = {
@@ -74,6 +74,7 @@ export default class PaginaCadastro extends React.Component {
       paymentMethods: this.state.paymentMethods,
       dueDate: this.state.dueDate,
     };
+
 
     Axios.post(url, body, headers)
       .then((res) => {
