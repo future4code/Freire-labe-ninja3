@@ -1,70 +1,69 @@
-# Getting Started with Create React App
+# <img src="https://user-images.githubusercontent.com/20983673/176777868-95c0243a-c474-4ff8-8ff9-89d36e9261a3.png" alt="Logo-icone" width="80"/> Labe Ninjas
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# O QUE FUNCIONA
+### Requisitos Obrigatórios do Projeto
+  - Deve haver duas áreas separadas no site, uma destinada à criação dos serviços oferecidos e outra destinada à listagem e busca dessas ofertas.
+  - Na parte de busca e listagem o usuário deve ser capaz de ver mais detalhes de uma oferta e decidir se deseja contratá-la (também será possível que o usuário desista da contratação).
+  - Deverá haver um carrinho onde o usuário possa adicionar propostas para contratá-las.
+  - Toda proposta de serviço deve conter, no mínimo, os seguintes campos:
+      - Título
+      - Descrição
+      - Valor da remuneração
+      - Método(s) de pagamento oferecidos
+      - Prazo
+  - Na listagem de trabalhos o usuário deve ser capaz:
+      - De filtrar por:
+          - Valor mínimo e máximo
+          - Título ou descrição (busca)
+      - De ordenar por:
+          - Título
+          - Valor da remuneração
+          - Prazo
+          
+ ### Desafios
+- Responsividade para celulares
+- Colocar Loadings sempre que estiver carregando alguma requisição
+- Manter os itens no carrinho mesmo que a página seja atualizada
+- Não permitir que um mesmo serviço seja adicionado ao carrinho mais de uma vez
 
-## Available Scripts
+# O QUE NÃO FUNCIONA
+- Nenhum bug encontrado
 
-In the project directory, you can run:
 
-### `npm start`
+## Participantes
+[@André Balsemão](https://github.com/andrebalsemao)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+[@Igor Rodrigues](https://github.com/Igorrteixeira)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+[@Lorran Santos](https://github.com/lorransantos)
 
-### `npm test`
+[@Guilherme Beutler](https://github.com/guibeutler)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+[@Jônatas Felix](https://github.com/JonatasFelix)
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Link
+http://labeninja-dos-guri.surge.sh/
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Ferramentas
+* ReactJS
+* Styled Components
+* Sweetalert2
+* Axios
+* React Select
+* React Icons
+* Material Ui
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Trello
+https://trello.com/invite/b/tm9zi7ZF/8515602b5fdb99b955b245bd9e8c9dca/labeninja3
 
-### `npm run eject`
+## Figman
+https://www.figma.com/file/ibYZZgmYBfws3qdKoHew1C/LabeNinjas---Labenu?node-id=0%3A1
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Imagens
+#### Desktop
+![Desktop](https://user-images.githubusercontent.com/20983673/176961484-1700abe3-1f16-4ad6-b026-a3175cc47def.png)
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+#### Mobile
+![Mobile](https://user-images.githubusercontent.com/20983673/176962343-2837d9c8-56ce-4a3d-97dd-4adeb4842181.png)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
